@@ -67,8 +67,9 @@ public class test extends SortCompetition{
 		if(list.length == 1)
 			return list;
 	
-		String[] left = Arrays.copyOfRange(list, 0, list.length/2);
-		String[] right = Arrays.copyOfRange(list, list.length/2 , list.length); 
+		String[] left = Arrays.copyOf(list, 0, list[7500]);
+		String[] right = Arrays.copyOfRange(list, list.length/2 , list.length);
+		return right; 
 		
 	}
 	
