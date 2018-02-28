@@ -13,8 +13,8 @@ public class Runner {
 	
 	public static void main(String[] args) {
 		int [] randArr = randomInts(10000);
-		Random r = new Random();
-		return ((Object) r).challengeOne(randArr);
+		test r = new test();
+		return r.challengeOne(randArr);
 		System.out.println(Arrays.toString(randArr));
 	}
 	
