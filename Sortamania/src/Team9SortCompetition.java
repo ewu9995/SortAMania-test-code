@@ -4,23 +4,23 @@ public class Team9SortCompetition extends SortCompetition{
 	public int challengeOne(int[] arr) {
 		int[] arr1 = arr;
 		quickSort(arr1, 0, arr1.length-1);
-		return (int)arr1.length/2;
+		return arr1[(arr1.length/2)-1];
 		
 	}
 
 	@Override
 	public int challengeTwo(String[] arr, String query) {
-		String [] arr1 = arr;
+		String[] arr1 = arr;
 		String x = query;
 		int y = 0;
 		bubbleSort(arr1);
 		for(int i =0; i < arr1.length; i++) {
 			if(arr1[i].equals(x)) {
-				y = Integer.parseInt(arr1[i]);
+				y= i;
+				return y;
 			}
-			else y = -1;
 		}
-		return y;
+		return  -1;
 	}
 
 	@Override

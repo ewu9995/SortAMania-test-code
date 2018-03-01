@@ -11,31 +11,44 @@ public class Runner {
 		return arr;
 	}
 	
+	//https://stackoverflow.com/questions/4951997/generating-random-words-in-java
 	public static String[] randomStrings(int x) {
 		String[] arr = new String [x];
-		
+		Random r = new Random();
+		    for(int i = 0; i < x; i++)
+		    {
+		        char[] word = new char[5]; 
+		        for(int j = 0; j < word.length; j++)
+		        {
+		            word[j] = (char)('a' + r.nextInt(26));
+		        }
+		        arr[i] = new String(word);
+		    }
 		return arr;
 	}
 	
 	public static void main(String[] args) {
 		
 		int [] randArr = randomInts(10000);
-		String [] randString = randomStrings(10000);
-	
+		String [] randStrings = randomStrings(10000);
+		
+		Team9SortCompetition x = new Team9SortCompetition();
+		
 		long start = System.nanoTime();
 		long end = System.nanoTime();
 		long time = end - start;
-		Team9SortCompetition x = new Team9SortCompetition();
 		x.challengeOne(randArr);
 		System.out.println("Challenge one took: " + time + " nanoseconds");
+		System.out.println(Arrays.toString(randArr));
+		System.out.println(x.challengeOne(randArr));
 		System.out.println(randArr[4999]);
 		
 		start = System.nanoTime();
 		end = System.nanoTime();
 		time = end - start;
-		x.challengeTwo(randString, "abcde");
+		x.challengeTwo(randStrings, "abcde");
 		System.out.println("Challenge two took: " + time + " nanoseconds");
-		System.out.println(Arrays.toString(randString));
+		System.out.println(x.challengeTwo(randStrings, "abcde"));
 	
 	
 	}
