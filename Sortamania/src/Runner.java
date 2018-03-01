@@ -13,6 +13,7 @@ public class Runner {
 	
 	public static String[] randomStrings(int x) {
 		String[] arr = new String [x];
+		
 		return arr;
 	}
 	
@@ -20,7 +21,7 @@ public class Runner {
 		
 		int [] randArr = randomInts(10000);
 		String [] randString = randomStrings(10000);
-		
+	
 		long start = System.nanoTime();
 		long end = System.nanoTime();
 		long time = end - start;
@@ -33,7 +34,7 @@ public class Runner {
 		end = System.nanoTime();
 		time = end - start;
 		x.challengeTwo(randString, "abcde");
-		System.out.println("Challenge one took: " + time + " nanoseconds");
+		System.out.println("Challenge two took: " + time + " nanoseconds");
 		System.out.println(Arrays.toString(randString));
 	
 	

@@ -18,7 +18,7 @@ public class Team9SortCompetition extends SortCompetition{
 			if(arr1[i].equals(x)) {
 				y = Integer.parseInt(arr1[i]);
 			}
-			else y = -1;;
+			else y = -1;
 		}
 		return y;
 	}
