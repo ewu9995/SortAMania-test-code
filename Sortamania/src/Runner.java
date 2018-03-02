@@ -27,10 +27,49 @@ public class Runner {
 		return arr;
 	}
 	
+	public static int[] mostlySortedInts (int x){
+		Team9SortCompetition q = new Team9SortCompetition();
+		int Sortedindexes =0;
+		int Unsortedindexes =0;
+		int arrindex =0; 
+		
+		int[] Sortedarr = new int [(int) (x*.75)];
+		int [] Unsortedarr = new int [x - Sortedarr.length];
+		int [] arr = new int [x];
+		
+		for(int i=0; i <Sortedarr.length-1; i++) {
+			Sortedarr[i] = (int) (Math.random()*x);
+		}
+		
+		q.quickSort(Sortedarr, 0, Sortedarr.length-1);
+		
+		for(int a=0; a <Unsortedarr.length-1; a++) {
+			Unsortedarr[a] = (int) (Math.random()*x);
+		}
+		
+		
+		for(int b=0; b <Sortedarr.length-1; b++) {
+			arr[b] = Sortedarr[Sortedindexes];
+			Sortedindexes ++;
+			arrindex ++;
+		}
+		
+		for(int c= Sortedarr.length; c <arr.length-1; c++) {
+			arr[c] = Unsortedarr[Unsortedindexes];
+			Unsortedindexes++;
+			arrindex++;
+		}
+		
+		
+		return arr;
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		int [] randArr = randomInts(10000);
 		String [] randStrings = randomStrings(10000);
+		int [] randArr2 = mostlySortedInts(10000);
 		
 		Team9SortCompetition x = new Team9SortCompetition();
 		
@@ -41,7 +80,7 @@ public class Runner {
 		System.out.println("Challenge one took: " + time + " nanoseconds");
 		System.out.println(Arrays.toString(randArr));
 		System.out.println(x.challengeOne(randArr));
-		System.out.println(randArr[4999]);
+	
 		
 		start = System.nanoTime();
 		end = System.nanoTime();
@@ -49,7 +88,15 @@ public class Runner {
 		x.challengeTwo(randStrings, "abcde");
 		System.out.println("Challenge two took: " + time + " nanoseconds");
 		System.out.println(x.challengeTwo(randStrings, "abcde"));
-	
+		
+		start = System.nanoTime();
+		end = System.nanoTime();
+		time = end - start;
+		x.challengeOne(randArr2);
+		System.out.println("Challenge three took: " + time + " nanoseconds");
+		System.out.println(Arrays.toString(randArr2));
+		System.out.println(x.challengeThree(randArr2));
+
 	
 	}
 	
