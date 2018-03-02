@@ -64,12 +64,30 @@ public class Runner {
 		return arr;
 	}
 	
+	public static int [][] randMulti(int x){
+		int[][] arr1 =  new int [x][x];
+		for(int i=0; i < arr1.length; i++) {
+			 for(int j=0;j<arr1[0].length;j++) {
+				 arr1[i][j] = (int) (Math.random()*x);
+			 }
+		}
+		return arr1;
+	}
+	
 	
 	public static void main(String[] args) {
 		
-		int [] randArr = randomInts(10000);
-		String [] randStrings = randomStrings(10000);
-		int [] randArr2 = mostlySortedInts(10000);
+		int [] randArr = randomInts(10);
+		String [] randStrings = randomStrings(10);
+		int [] randArr2 = mostlySortedInts(10);
+		int [][] randArr3 = randMulti(10);
+		
+		for(int[] a : randArr3) {
+		for (int b : a) {
+		System.out.print(b + "\t");
+		}
+		 System.out.println("\n");
+		}
 		
 		Team9SortCompetition x = new Team9SortCompetition();
 		

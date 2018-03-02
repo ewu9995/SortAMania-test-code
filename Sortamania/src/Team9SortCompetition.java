@@ -33,7 +33,7 @@ public class Team9SortCompetition extends SortCompetition{
 
 	@Override
 	public int challengeFour(int[][] arr) {
-		// TODO Auto-generated method stub
+	
 		return 0;
 	}
 
@@ -45,7 +45,7 @@ public class Team9SortCompetition extends SortCompetition{
 
 	@Override
 	public String greeting() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	
