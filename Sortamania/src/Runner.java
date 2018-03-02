@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Runner {
-
+	
 	public static int[] randomInts(int x) {
 		int[] arr = new int [x];
 		for(int i=0; i <x-1; i++) {
@@ -31,10 +31,10 @@ public class Runner {
 		Team9SortCompetition q = new Team9SortCompetition();
 		int Sortedindexes =0;
 		int Unsortedindexes =0;
-		int arrindex =0; 
+		int arrindex = 0; 
 		
 		int[] Sortedarr = new int [(int) (x*.75)];
-		int [] Unsortedarr = new int [x - Sortedarr.length];
+		int [] Unsortedarr = new int [x - Sortedarr.length-1];
 		int [] arr = new int [x];
 		
 		for(int i=0; i <Sortedarr.length-1; i++) {
