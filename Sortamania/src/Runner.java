@@ -11,6 +11,14 @@ public class Runner {
 		return arr;
 	}
 	
+	public static Comparable[] randomInts5(int x) {
+		Comparable[] arr = new Comparable [x];
+		for(int i=0; i <x-1; i++) {
+			arr[i] = (int) (Math.random()*x);
+		}
+		return arr;
+	}
+	
 	//https://stackoverflow.com/questions/4951997/generating-random-words-in-java
 	public static String[] randomStrings(int x) {
 		String[] arr = new String [x];
@@ -77,11 +85,11 @@ public class Runner {
 	
 	public static void main(String[] args) {
 		
-		int [] randArr = randomInts(10);
-		String [] randStrings = randomStrings(10);
-		int [] randArr2 = mostlySortedInts(10);
+		int [] randArr = randomInts(9);
+		String [] randStrings = randomStrings(9);
+		int [] randArr2 = mostlySortedInts(9);
 		int [][] randArr3 = randMulti(5);
-		
+		Comparable [] randArr4 = randomInts5(9);
 		
 		
 		
@@ -135,8 +143,14 @@ public class Runner {
 			
 			System.out.println("\n");	
 		System.out.println(x.challengeFour(randArr3));
-
 	
-	}
 	
+		start = System.nanoTime();
+		end = System.nanoTime();
+		time = end - start;
+		x.challengeFive(randArr4, 4);
+		System.out.println("Challenge five took: " + time + " nanoseconds");
+		System.out.println(x.challengeFive(randArr4, time));
+	
+}
 }
