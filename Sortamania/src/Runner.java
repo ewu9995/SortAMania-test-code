@@ -11,11 +11,18 @@ public class Runner {
 		return arr;
 	}
 	
-	public static Comparable[] randomInts5(int x) {
-		Comparable[] arr = new Comparable [x];
-		for(int i=0; i <x-1; i++) {
-			arr[i] = (int) (Math.random()*x);
-		}
+	public static Comparable[] randomStrings2(int x) {
+		String[] arr = new String [x];
+		Random r = new Random();
+		    for(int i = 0; i < x; i++)
+		    {
+		        char[] word = new char[5]; 
+		        for(int j = 0; j < word.length; j++)
+		        {
+		            word[j] = (char)('a' + r.nextInt(26));
+		        }
+		        arr[i] = new String(word);
+		    }
 		return arr;
 	}
 	
@@ -89,7 +96,7 @@ public class Runner {
 		String [] randStrings = randomStrings(9);
 		int [] randArr2 = mostlySortedInts(9);
 		int [][] randArr3 = randMulti(5);
-		Comparable [] randArr4 = randomInts5(9);
+		String [] randStrings2 = {"abbcd", "bchdasjs", "iorererr", "yzjjzz", "xirire", "mcmmcncn"};
 		
 		
 		
@@ -144,13 +151,13 @@ public class Runner {
 			System.out.println("\n");	
 		System.out.println(x.challengeFour(randArr3));
 	
-	
+		
 		start = System.nanoTime();
 		end = System.nanoTime();
 		time = end - start;
-		x.challengeFive(randArr4, 4);
+		x.challengeFive(randStrings2, "yirire");
 		System.out.println("Challenge five took: " + time + " nanoseconds");
-		System.out.println(x.challengeFive(randArr4, time));
-	
+		System.out.println(Arrays.toString(randStrings2));
+		System.out.println(x.challengeFive(randStrings2, "yzjjzz"));
 }
 }

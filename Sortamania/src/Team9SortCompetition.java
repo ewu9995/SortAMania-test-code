@@ -6,7 +6,12 @@ public class Team9SortCompetition extends SortCompetition{
 		int median = 0;
 		int[] arr1 = arr;
 		quickSort(arr1, 0, arr1.length-1);
-		median=  arr1[(arr1.length/2)];
+		if (arr1.length % 2 == 0) {
+		    median = (arr1[arr1.length/2] + (arr1[arr1.length/2 - 1]))/2;
+		}
+		else {
+		    median = arr1[arr1.length/2];
+		}
 		return median;
 	}
 
@@ -27,9 +32,16 @@ public class Team9SortCompetition extends SortCompetition{
 
 	@Override
 	public int challengeThree(int[] arr) {
+		int median = 0;
 		int[] arr1 = arr;
 		quickSort(arr1, 0, arr1.length-1);
-		return arr1[(arr1.length/2)];
+		if (arr1.length % 2 == 0) {
+		    median = (arr1[arr1.length/2] + (arr1[arr1.length/2 - 1]))/2;
+		}
+		else {
+		    median = arr1[arr1.length/2];
+		}
+		return median;
 	}
 
 	@Override
@@ -54,7 +66,7 @@ public class Team9SortCompetition extends SortCompetition{
 	@Override
 	public int challengeFive(Comparable[] arr, Comparable query) {
 		int y = 0;
-		mergeSort(Comparable[] arr);
+		mergeSort1(arr);
 		for(int i =0; i < arr.length; i++) {
 			if(arr[i].equals(query)) {
 				y= i;
@@ -91,6 +103,18 @@ public class Team9SortCompetition extends SortCompetition{
 	
 
 
+	public static void bubbleSort(Comparable [] list1) {
+		boolean swap = true;
+		while(swap) { //while loop is used as there is a limited number of loops before everything gets sorted
+			swap=false;
+			for(int i = 0; i < list1.length-1; i++) { //loops through the loop; first value becomes current value i
+				if(list1[i].compareTo(list1[i+1])>0) { // if the value to the right of a value is less than the current value
+						bubbleSwap(list1, i, i+1);     // the values swap
+						swap = true; //swap is true, so cycle repeats until everything is sorted
+					}
+				}
+			}
+		}
 	public static void bubbleSort(String [] list1) {
 		boolean swap = true;
 		while(swap) { //while loop is used as there is a limited number of loops before everything gets sorted
@@ -120,7 +144,7 @@ public class Team9SortCompetition extends SortCompetition{
 		
 	}
 	
-	public static Comparable[] mergeSort(Comparable[] list) 
+	public static Comparable[] mergeSort1(Comparable[] list) 
 	{
 		//Base case
 		if(list.length == 1)
@@ -132,13 +156,13 @@ public class Team9SortCompetition extends SortCompetition{
 		//right is 1/2 to end
 		Comparable[] left = Arrays.copyOfRange(list, 0, list.length/2);
 		Comparable[] right = Arrays.copyOfRange(list, list.length/2 , list.length); 
-		return(merge(mergeSort(left), mergeSort(right)));
+		return(merge1(mergeSort1(left), mergeSort1(right)));
 		
 	}
 	
 	//Sourced from: https://stackoverflow.com/questions/5958169/how-to-merge-two-sorted-arrays-into-a-sorted-array
 
-	private static Comparable[] merge(Comparable[] mergeSort, Comparable[] mergeSort2) {
+	private static Comparable[] merge1(Comparable[] list1, Comparable[] list2) {
 		Comparable [] combinedArray = new String[list1.length + list2.length]; //new array must be length of both arrays combined
 		int x=0; //list1 indexes
 		int y=0; //list2 indexes
@@ -225,11 +249,18 @@ public class Team9SortCompetition extends SortCompetition{
 			    return combinedArray; //returns the merged sorted array 
 		}
 	
-	public static void bubbleSwap(String []arr, int index1, int index2) {
-		String temp = arr[index1];
-		arr[index1] = arr[index2];
-		arr[index2] = temp;
+	public static void bubbleSwap(Comparable[] list1, int index1, int index2) {
+		String temp = (String) list1[index1];
+		list1[index1] = list1[index2];
+		list1[index2] = temp;
 	}
+	
+	public static void bubbleSwap(String[] list1, int index1, int index2) {
+		String temp = (String) list1[index1];
+		list1[index1] = list1[index2];
+		list1[index2] = temp;
+	}
+	
 	
 	public static int partition(int[] list1, int front, int back) 
 	{
