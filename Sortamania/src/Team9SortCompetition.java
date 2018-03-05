@@ -3,10 +3,11 @@ import java.util.Arrays;
 public class Team9SortCompetition extends SortCompetition{
 
 	public int challengeOne(int[] arr) {
+		int median = 0;
 		int[] arr1 = arr;
 		quickSort(arr1, 0, arr1.length-1);
-		return arr1[(arr1.length/2)-1];
-		
+		median=  arr1[(arr1.length/2)-1];
+		return median;
 	}
 
 	@Override
@@ -33,10 +34,23 @@ public class Team9SortCompetition extends SortCompetition{
 
 	@Override
 	public int challengeFour(int[][] arr) {
+		int median = 0;
+		int a= 0;
 	
-		return 0;
+		int [] x = new int [arr.length];
+		
+		for(int i=0; i < arr.length; i++) {
+			challengeOne(arr[i]);
+			for(int j=0; j < arr[i].length; j++) {
+				median = challengeOne(arr[j]);	
+			}
+		}
+		
+		
+		
+		return median;
 	}
-
+	
 	@Override
 	public int challengeFive(Comparable[] arr, Comparable query) {
 		// TODO Auto-generated method stub
@@ -66,6 +80,8 @@ public class Team9SortCompetition extends SortCompetition{
 		}
 	}
 	
+
+
 	public static void bubbleSort(String [] list1) {
 		boolean swap = true;
 		while(swap) { //while loop is used as there is a limited number of loops before everything gets sorted

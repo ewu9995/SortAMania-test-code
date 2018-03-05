@@ -80,7 +80,10 @@ public class Runner {
 		int [] randArr = randomInts(10);
 		String [] randStrings = randomStrings(10);
 		int [] randArr2 = mostlySortedInts(10);
-		int [][] randArr3 = randMulti(10);
+		int [][] randArr3 = randMulti(5);
+		
+		
+		
 		
 		for(int[] a : randArr3) {
 		for (int b : a) {
@@ -89,8 +92,11 @@ public class Runner {
 		 System.out.println("\n");
 		}
 		
+		System.out.println("\n");
 		Team9SortCompetition x = new Team9SortCompetition();
 		
+
+
 		long start = System.nanoTime();
 		long end = System.nanoTime();
 		long time = end - start;
@@ -110,10 +116,25 @@ public class Runner {
 		start = System.nanoTime();
 		end = System.nanoTime();
 		time = end - start;
-		x.challengeOne(randArr2);
+		x.challengeThree(randArr2);
 		System.out.println("Challenge three took: " + time + " nanoseconds");
 		System.out.println(Arrays.toString(randArr2));
 		System.out.println(x.challengeThree(randArr2));
+		
+		start = System.nanoTime();
+		end = System.nanoTime();
+		time = end - start;
+		x.challengeFour(randArr3);
+		System.out.println("Challenge four took: " + time + " nanoseconds");
+		for(int[] q : randArr3) {
+			for (int w : q) {
+			System.out.print(w + "\t");
+			}
+			 System.out.println("\n");
+			}
+			
+			System.out.println("\n");	
+		System.out.println(x.challengeFour(randArr3));
 
 	
 	}
